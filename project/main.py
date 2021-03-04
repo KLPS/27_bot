@@ -477,7 +477,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/mimi_holla.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/mimi_holla.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -493,7 +493,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/reyna_gg.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/reyna_gg.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -509,7 +509,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/chaamelt_lyoum.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/chaamelt_lyoum.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -525,7 +525,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/3ak3ak.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/3ak3ak.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -541,7 +541,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/eve_hi.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/eve_hi.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -557,7 +557,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/pika_nejla.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/pika_nejla.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -573,7 +573,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/divix.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/divix.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -589,7 +589,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/firas_wassup.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/firas_wassup.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -605,7 +605,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/awee.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/awee.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -621,7 +621,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/iloveyou.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/iloveyou.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -637,7 +637,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/despacito.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/despacito.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -653,7 +653,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/method_mpaka.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/method_mpaka.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -669,7 +669,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/makky_kafra.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/makky_kafra.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -685,7 +685,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/salem_3liikom.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/salem_3liikom.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -701,7 +701,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/mizwed.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/mizwed.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -717,7 +717,7 @@ class Music(commands.Cog):
           voice_channel = ctx.author.voice.channel
           if voice_channel != None:
               vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="/home/akaibi/27bot/audio/rawr.wav"))
+              vc.play(discord.FFmpegPCMAudio(source="./audio/rawr.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -780,4 +780,4 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="27._mimi\n 27._eve\n 27._nejla\n 27.aweee\n 27.iloveu\n 27.firas_wassup\n 27.salam\n 27.mizwed\n 27.makky\n 27.mpaka\n 27.despa\n 27.chamelt \n 27.3ak3ak \n 27._reyna \n 27.rawr"))
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 
-bot.run("ODA5OTM0MDIxMDU1NzQxOTUy.YCcT1g.L_2uYkiwvTSJIk_c9xmZLqGgBpw")
+bot.run("ODA5OTM0MDIxMDU1NzQxOTUy.YCcT1g.0boxYiNLJw5MwIRwwk0aU4QcW6I")
