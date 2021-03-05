@@ -797,6 +797,35 @@ class Music(commands.Cog):
 
                 await ctx.voice_state.songs.put(song)
                 await ctx.send('Enqueued {}'.format(str(source)))
+                
+    @commands.command(name='help')
+        async def _help(self, ctx: commands.Context):
+            """help
+            """
+            help_str = """Help: print bot's available commands
+                              For help or any question or suggession feel free to contact @DOVAHKIIN or his partner in crime @Mimi_pooh usally active in server 27
+                              bot command prefix is 27.
+                              27.inspire        :: returns a string with inspirational quote randomly generated from zenquotes api
+                              27.join           :: joins the corrent voice channel
+                              27.disconnect     :: disconnects from voice channel
+                              27.play [url/str] :: plays song from url
+                              :::voice commands::: try them out and see for yourself!
+                              27._mimi
+                              27._reyna
+                              27._eve
+                              27._divix
+                              27._nejla
+                              27.makky
+                              27.aweee
+                              27.mpaka
+                              27.3ak3ak
+                              27.despa
+                              27.mizwed
+                              27.rawr
+                              27.salam
+                              27.chamelt"""
+
+            await ctx.send(help_str)                  
 
     @commands.command(name='inspire')
     async def _inspire(self, ctx: commands.Context):
