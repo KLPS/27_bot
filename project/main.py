@@ -470,7 +470,52 @@ class Music(commands.Cog):
         # Inverse boolean value to loop and unloop.
         ctx.voice_state.loop = not ctx.voice_state.loop
         await ctx.message.add_reaction('✅')
+    
+    @commands.command(name='play')
+    async def _play(self, ctx: commands.Context, *, search: str):
+        """Plays a song.
+        If there are songs in the queue, this will be queued until the
+        other songs finished playing.
+        This command automatically searches from various sites if no URL is provided.
+        A list of these sites can be found here: https://rg3.github.io/youtube-dl/supportedsites.html
+        """
 
+        if not ctx.voice_state.voice:
+            await ctx.invoke(self._join)
+       
+        async with ctx.typing():
+            try:
+                source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop)
+            except YTDLError as e:
+                await ctx.send('An error occurred while processing this request: {}'.format(str(e)))
+            else:
+                song = Song(source)
+
+                await ctx.voice_state.songs.put(song)
+                await ctx.send('Enqueued {}'.format(str(source)))
+                
+    @commands.command(name='inspire')
+    async def _inspire(self, ctx: commands.Context):
+      """inspire me
+      """
+      try:
+        quote = get_quote()
+        await ctx.send(quote)
+      except Exception as error:
+        await ctx.send(f'An error occurred : {error}')
+
+    @_join.before_invoke
+    @_play.before_invoke
+    async def ensure_voice_state(self, ctx: commands.Context):
+        if not ctx.author.voice or not ctx.author.voice.channel:
+            raise commands.CommandError('You are not connected to any voice channel.')
+
+        if ctx.voice_client:
+            if ctx.voice_client.channel != ctx.author.voice.channel:
+                raise commands.CommandError('Bot is already in a voice channel.')
+
+class SoundBoard(commands.Cog):
+    """Plays a sound from 27's database"""
     @commands.command(name="_mimi")
     async def _function_mimi(self, ctx):
           # Gets voice channel of message author
@@ -774,81 +819,10 @@ class Music(commands.Cog):
               await ctx.send(str(ctx.author.name) + "is not in a channel.")
           # Delete command after the audio is done playing.
           await ctx.message.delete()
-    @commands.command(name='play')
 
-    async def _play(self, ctx: commands.Context, *, search: str):
-        """Plays a song.
-        If there are songs in the queue, this will be queued until the
-        other songs finished playing.
-        This command automatically searches from various sites if no URL is provided.
-        A list of these sites can be found here: https://rg3.github.io/youtube-dl/supportedsites.html
-        """
+bot = commands.Bot('27.', description="27's original musical/inspirational/interactive bot developed and maintained by Dovah\nBot's command prefix is '27.' for example type 27.salam and see what it does!")
 
-        if not ctx.voice_state.voice:
-            await ctx.invoke(self._join)
-       
-        async with ctx.typing():
-            try:
-                source = await YTDLSource.create_source(ctx, search, loop=self.bot.loop)
-            except YTDLError as e:
-                await ctx.send('An error occurred while processing this request: {}'.format(str(e)))
-            else:
-                song = Song(source)
-
-                await ctx.voice_state.songs.put(song)
-                await ctx.send('Enqueued {}'.format(str(source)))
-                
-    @commands.command(name='help')
-        async def _help(self, ctx: commands.Context):
-            """help
-            """
-            help_str = """Help: print bot's available commands
-                              For help or any question or suggession feel free to contact @DOVAHKIIN or his partner in crime @Mimi_pooh usally active in server 27
-                              bot command prefix is 27.
-                              27.inspire        :: returns a string with inspirational quote randomly generated from zenquotes api
-                              27.join           :: joins the corrent voice channel
-                              27.disconnect     :: disconnects from voice channel
-                              27.play [url/str] :: plays song from url
-                              :::voice commands::: try them out and see for yourself!
-                              27._mimi
-                              27._reyna
-                              27._eve
-                              27._divix
-                              27._nejla
-                              27.makky
-                              27.aweee
-                              27.mpaka
-                              27.3ak3ak
-                              27.despa
-                              27.mizwed
-                              27.rawr
-                              27.salam
-                              27.chamelt"""
-
-            await ctx.send(help_str)                  
-
-    @commands.command(name='inspire')
-    async def _inspire(self, ctx: commands.Context):
-      """inspire me
-      """
-      try:
-        quote = get_quote()
-        await ctx.send(quote)
-      except Exception as error:
-        await ctx.send(f'An error occurred : {error}')
-
-    @_join.before_invoke
-    @_play.before_invoke
-    async def ensure_voice_state(self, ctx: commands.Context):
-        if not ctx.author.voice or not ctx.author.voice.channel:
-            raise commands.CommandError('You are not connected to any voice channel.')
-
-        if ctx.voice_client:
-            if ctx.voice_client.channel != ctx.author.voice.channel:
-                raise commands.CommandError('Bot is already in a voice channel.')
-
-
-bot = commands.Bot('27.', description='Yet another music bot.')
+bot.add_cog(SoundBoard())
 bot.add_cog(Music(bot))
 
 
@@ -857,4 +831,4 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="27._mimi\n 27._eve\n 27._nejla\n 27.aweee\n 27.iloveu\n 27.firas_wassup\n 27.salam\n 27.mizwed\n 27.makky\n 27.mpaka\n 27.despa\n 27.chamelt \n 27.3ak3ak \n 27._reyna \n 27.rawr"))
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 
-bot.run("ODA5OTM0MDIxMDU1NzQxOTUy.YCcT1g.0boxYiNLJw5MwIRwwk0aU4QcW6I")
+bot.run("")
