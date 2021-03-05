@@ -727,6 +727,38 @@ class Music(commands.Cog):
           # Delete command after the audio is done playing.
           await ctx.message.delete()
 
+    @commands.command(name="bye")
+    async def _function_bye(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/bye.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
+
+    @commands.command(name="ija")
+    async def _function_ija(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/ija.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
+
     @commands.command(name='play')
     async def _play(self, ctx: commands.Context, *, search: str):
         """Plays a song.
