@@ -883,6 +883,38 @@ class SoundBoard(commands.Cog):
               await ctx.send(str(ctx.author.name) + "is not in a channel.")
           # Delete command after the audio is done playing.
           await ctx.message.delete()
+
+    @commands.command(name="douda")
+    async def _function_douda(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/douda.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
+
+    @commands.command(name="ya_mar7aba")
+    async def _function_ya_mar7aba(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/ya_mar7aba.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
 bot = commands.Bot('27.', description="27's original musical/inspirational/interactive bot developed and maintained by Dovah\nBot's command prefix is '27.' for example type 27.salam and see what it does!")
 
 bot.add_cog(SoundBoard())
