@@ -516,22 +516,6 @@ class Music(commands.Cog):
 
 class SoundBoard(commands.Cog):
     """Plays a sound from 27's database"""
-    @commands.command(name="_mimi")
-    async def _function_mimi(self, ctx):
-          # Gets voice channel of message author
-          voice_channel = ctx.author.voice.channel
-          if voice_channel != None:
-              vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="./audio/mimi_holla.wav"))
-            # Sleep while audio is playing.
-              while vc.is_playing():
-                  time.sleep(.1)
-              await vc.disconnect()
-          else:
-              await ctx.send(str(ctx.author.name) + "is not in a channel.")
-          # Delete command after the audio is done playing.
-          await ctx.message.delete()
-
     @commands.command(name="_reyna")
     async def _function_reyna(self, ctx):
           # Gets voice channel of message author
@@ -635,38 +619,6 @@ class SoundBoard(commands.Cog):
           if voice_channel != None:
               vc = await voice_channel.connect()
               vc.play(discord.FFmpegPCMAudio(source="./audio/firas_wassup.wav"))
-            # Sleep while audio is playing.
-              while vc.is_playing():
-                  time.sleep(.1)
-              await vc.disconnect()
-          else:
-              await ctx.send(str(ctx.author.name) + "is not in a channel.")
-          # Delete command after the audio is done playing.
-          await ctx.message.delete()
-
-    @commands.command(name="aweee")
-    async def _function_aweee(self, ctx):
-          # Gets voice channel of message author
-          voice_channel = ctx.author.voice.channel
-          if voice_channel != None:
-              vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="./audio/awee.wav"))
-            # Sleep while audio is playing.
-              while vc.is_playing():
-                  time.sleep(.1)
-              await vc.disconnect()
-          else:
-              await ctx.send(str(ctx.author.name) + "is not in a channel.")
-          # Delete command after the audio is done playing.
-          await ctx.message.delete()
-
-    @commands.command(name="iloveu")
-    async def _function_iloveu(self, ctx):
-          # Gets voice channel of message author
-          voice_channel = ctx.author.voice.channel
-          if voice_channel != None:
-              vc = await voice_channel.connect()
-              vc.play(discord.FFmpegPCMAudio(source="./audio/iloveyou.wav"))
             # Sleep while audio is playing.
               while vc.is_playing():
                   time.sleep(.1)
@@ -931,6 +883,54 @@ class SoundBoard(commands.Cog):
               await ctx.send(str(ctx.author.name) + "is not in a channel.")
           # Delete command after the audio is done playing.
           await ctx.message.delete()
+
+    @commands.command(name="es7a")
+    async def _function_ya_es7a(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/es7a.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
+
+    @commands.command(name="galbi")
+    async def _function_ya_galbi(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/galbi.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
+    
+    @commands.command(name="duo_se")
+    async def _function_ya_duo_se(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/Duo_Eve_Seif.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
 bot = commands.Bot('27.', description="27's original musical/inspirational/interactive bot developed and maintained by Dovah\nBot's command prefix is '27.' for example type 27.salam and see what it does!")
 
 bot.add_cog(SoundBoard())
@@ -939,7 +939,7 @@ bot.add_cog(Music(bot))
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="27._mimi\n 27._eve\n 27._nejla\n 27.aweee\n 27.iloveu\n 27.firas_wassup\n 27.salam\n 27.mizwed\n 27.makky\n 27.mpaka\n 27.despa\n 27.chamelt \n 27.3ak3ak \n 27._reyna \n 27.rawr"))
+    await bot.change_presence(activity=discord.Game(name="dev by dovah"))
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 
 bot.run("")
