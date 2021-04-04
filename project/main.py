@@ -963,6 +963,22 @@ class SoundBoard(commands.Cog):
               await ctx.send(str(ctx.author.name) + "is not in a channel.")
           # Delete command after the audio is done playing.
           await ctx.message.delete()
+
+    @commands.command(name="lag")
+    async def _function_lag(self, ctx):
+          # Gets voice channel of message author
+          voice_channel = ctx.author.voice.channel
+          if voice_channel != None:
+              vc = await voice_channel.connect()
+              vc.play(discord.FFmpegPCMAudio(source="./audio/lag.wav"))
+            # Sleep while audio is playing.
+              while vc.is_playing():
+                  time.sleep(.1)
+              await vc.disconnect()
+          else:
+              await ctx.send(str(ctx.author.name) + "is not in a channel.")
+          # Delete command after the audio is done playing.
+          await ctx.message.delete()
 bot = commands.Bot('27.', description="27's original musical/inspirational/interactive bot developed and maintained by Dovah\nBot's command prefix is '27.' for example type 27.salam and see what it does!")
 
 bot.add_cog(SoundBoard())
@@ -974,4 +990,4 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="dev by dovah"))
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 
-bot.run("ODA5OTM0MDIxMDU1NzQxOTUy.YCcT1g.DWzTVgOFWuib6tO-RoK83MF2MuY")
+bot.run("ODA5OTM0MDIxMDU1NzQxOTUy.YCcT1g.kR04Wi4gohNzNbx9LW0NpP7bPR4")
